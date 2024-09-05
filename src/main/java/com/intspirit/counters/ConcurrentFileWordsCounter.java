@@ -28,7 +28,7 @@ public class ConcurrentFileWordsCounter implements WordsCounter {
         this.paths = paths;
         this.lexer = lexer;
 
-        final int cores = 2 * Runtime.getRuntime().availableProcessors();
+        final int cores = Runtime.getRuntime().availableProcessors();
 
         this.numberOfThreads = Math.min(cores, paths.size());
         this.latch = new CountDownLatch(this.numberOfThreads);
